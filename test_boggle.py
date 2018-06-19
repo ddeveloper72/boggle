@@ -69,6 +69,31 @@ class TestBoggle(unittest.TestCase):
             others.remove(pos)
             self.assertEqual(sorted(neighbours[pos]), sorted(others))
             
-            
+    def test_converting_a_path_to_a_word(self):
+        """
+        Ensure that paths can be conbverted to words
+        """
+        grid = boggle.make_grid(2, 2)
+        oneLetterWord = boggle.path_to_word(grid, [(0, 0)])
+        twoLetterWord = boggle.path_to_word(grid, [(0, 0), (1 , 1)])
+        self.assertEqual(oneLetterWord, grid[(0, 0)])
+        self.assertEqual(twoLetterWord, grid[(0, 0)]+ grid[(1, 1)])
+      
+    def test_search_grid_for_words(self):
+        """
+        Ensure that certain patters can be found in a path_to_word
+        """
         
+        grid = {(0, 0): 'A', (0, 1): 'B', (1, 0): 'C', (1, 1): 'D'}
+        twoLetterWord = 'AB'
+        threeletterWord = 'ABC'
+        notThereWord = 'EEE'
+        dictionary = [twoLetterWord, threeletterWord, notThereWord]
+        
+        foundWords = boggle.search(grid, dictionary)
+        
+        self.assertTrue(twoLetterWord in foundWords)
+        self.assertTrue(threeletterWord in foundWords)
+        self.assertTrue(notThereWord not in foundWords)
+          
             
