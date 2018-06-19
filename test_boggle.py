@@ -84,10 +84,10 @@ class TestBoggle(unittest.TestCase):
         Ensure that certain patters can be found in a path_to_word
         """
         
-        grid = {(0, 0): 'A', (0, 1): 'B', (1, 0): 'C', (1, 1): 'D'}
-        twoLetterWord = 'AB'
-        threeletterWord = 'ABC'
-        notThereWord = 'EEE'
+        grid = {(0, -1): 'A', (0, 0): 'B', (0, 1): 'C', (1, -1): 'D'}
+        twoLetterWord = "AB"
+        threeletterWord = "ABC"
+        notThereWord = "EEE"
         dictionary = [twoLetterWord, threeletterWord, notThereWord]
         
         foundWords = boggle.search(grid, dictionary)
@@ -95,5 +95,6 @@ class TestBoggle(unittest.TestCase):
         self.assertTrue(twoLetterWord in foundWords)
         self.assertTrue(threeletterWord in foundWords)
         self.assertTrue(notThereWord not in foundWords)
-          
-            
+
+if __name__ == "__main__":
+    unittest.main()         

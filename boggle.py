@@ -57,7 +57,7 @@ def path_to_word(grid, path):
 def search(grid, dictionary):
     """
     search through the paths to locate words by 
-    matching stringhs to words in a dictionary
+    matching strings to words in a dictionary
     """
     
     neighbours = all_grid_neighbours(grid)
@@ -71,10 +71,10 @@ def search(grid, dictionary):
             if next_pos not in path:
                 do_search(path + [next_pos])
         
-        for position in grid:
-            do_search([position])
+    for position in grid:
+        do_search([position])
         
-        words = []
-        for path in paths:
+    words = []
+    for path in paths:
             words.append(path_to_word(grid, path))
-        return set(words)
+    return set(words)
