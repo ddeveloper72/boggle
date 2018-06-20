@@ -78,3 +78,10 @@ def search(grid, dictionary):
     for path in paths:
             words.append(path_to_word(grid, path))
     return set(words)
+
+def get_dictionary(dictionary_file):
+    """
+    Load Dictionary File
+    """
+    with open(dictionary_file) as f:
+        return [w.strip().upper() for w in f]
