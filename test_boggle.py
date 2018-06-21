@@ -9,7 +9,7 @@ class TestBoggle(unittest.TestCase):
     
     def test_can_create_an_empty_grid(self):
         """
-        Test tpo see oif we can crste an empty frid
+        Test to see  if we can create an empty grid
         """
         grid = boggle.make_grid(0, 0)
         self.assertEqual(len(grid), 0)
@@ -88,7 +88,9 @@ class TestBoggle(unittest.TestCase):
         twoLetterWord = "AB"
         threeletterWord = "ABC"
         notThereWord = "EEE"
-        dictionary = [twoLetterWord, threeletterWord, notThereWord]
+        fullwords = [twoLetterWord, threeletterWord, notThereWord]
+        stems = ['A', 'AB', 'E', 'EE']
+        dictionary = fullwords, stems
         
         foundWords = boggle.search(grid, dictionary)
         
