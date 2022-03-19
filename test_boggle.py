@@ -47,7 +47,7 @@ class TestBoggle(unittest.TestCase):
         Ensure that a position has 8 neighbours
         """
         coords = (1, 2)
-        neighbours = boggle.neighbours_of_position(coords)
+        neighbours = boggle.neighbors_of_position(coords)
         self.assertIn((0, 1), neighbours)
         self.assertIn((0, 2), neighbours)
         self.assertIn((0, 3), neighbours)
@@ -62,7 +62,7 @@ class TestBoggle(unittest.TestCase):
         Ensure that all the grid positions have neighbours
         """
         grid = boggle.make_grid(2, 2)
-        neighbours = boggle.all_grid_neighbours(grid)
+        neighbours = boggle.all_grid_neighbors(grid)
         self.assertEqual(len(neighbours), len(grid))
         for pos in grid:
             others = list(grid) # creates a new list from the dictionary's keys
